@@ -1,4 +1,13 @@
 ---
+title: 'R pachong 政府工作报告'
+author: jocelyn
+date: '2019-05-16'
+slug: r-pachong
+categories:
+  - R
+tags: []
+---
+---
 title: R 爬政府工作报告
 author: jocelyn
 date: '2019-05-16'
@@ -56,7 +65,8 @@ print(f)
 ### wordcloud 可视化
 
 ```{r}
-f2<-f[1:150,]     #总共有2000多个词，为了显示效果，我只提取前150个字
+
+f2<-f[1:150,] #总共有2000多个词，为了显示效果，我只提取前150个字
 
 wordcloud2(f2, size = 1 ,shape='triangle')    #形状设置为三角形
 
