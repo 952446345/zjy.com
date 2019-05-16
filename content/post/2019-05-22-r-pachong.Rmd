@@ -1,12 +1,11 @@
 ---
-title: r pachong 工作报告
-author: jocelyn
-date: '2019-05-16'
-slug: r-pachong-zhengfu
+title: r pachong爬虫
+author: ''
+date: '2019-05-22'
+slug: r-pachong
 categories:
   - R
 tags: []
-
 ---
 # 今天我们要用爬虫来爬取这篇文章，然后进行文本分词，再到文本可视化。我们需要使用下面这三个包：
 
@@ -43,6 +42,7 @@ position<-web %>% html_nodes("div.pages_content") %>% html_text()
 print(position)
 
 ```
+
 ##使用jiebaR进行分词，统计词频
 
 ```{r}
@@ -55,7 +55,6 @@ hist(table(seg))
 print(f)
 ```
 
-
 ### wordcloud 可视化
 
 ```{r}
@@ -65,30 +64,3 @@ f2<-f[1:150,] #总共有2000多个词，为了显示效果，我只提取前150�
 wordcloud2(f2, size = 1 ,shape='triangle')    #形状设置为三角形
 
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
