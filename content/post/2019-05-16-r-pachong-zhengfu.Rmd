@@ -6,33 +6,7 @@ slug: r-pachong-zhengfu
 categories:
   - R
 tags: []
----
----
-title: 'R  建立博客'
-author: jocelyn
-date: '2019-05-16'
-slug: r
-categories:
-  - R
-tags: []
----
----
-title: 'R pachong 政府工作报告'
-author: jocelyn
-date: '2019-05-16'
-slug: r-pachong
-categories:
-  - R
-tags: []
----
----
-title: R 爬政府工作报告
-author: jocelyn
-date: '2019-05-16'
-slug: r-1
-categories:
-  - R
-tags: []
+
 ---
 # 今天我们要用爬虫来爬取这篇文章，然后进行文本分词，再到文本可视化。我们需要使用下面这三个包：
 
