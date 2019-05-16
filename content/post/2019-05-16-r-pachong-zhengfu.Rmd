@@ -62,15 +62,17 @@ web存储网页信息的变量。
 最后我们用html_text()函数获取标签内的文本信息。
 
 ```{r}
+library("rvest")
 url<-'http://www.gov.cn/guowuyuan/2019-03/16/content_5374314.htm'
 web<-read_html(url,encoding="utf-8") #读取数据，规定编码
 position<-web %>% html_nodes("div.pages_content") %>% html_text()
 print(position)
+
 ```
 ##使用jiebaR进行分词，统计词频
 
 ```{r}
-
+library("jiebaR")
 engine_s<-worker( )#初始化分词引擎并加载停用词。
 seg<-segment(position,engine_s)#分词
 f<-freq(seg) #统计词频
