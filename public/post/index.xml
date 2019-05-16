@@ -1,53 +1,54 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on A Hugo website</title>
+    <title>Posts on 张净沿 Blog</title>
     <link>/post/</link>
-    <description>Recent content in Posts on A Hugo website</description>
+    <description>Recent content in Posts on 张净沿 Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 16 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>wuliao</title>
-      <link>/2019/05/14/wuliao/</link>
-      <pubDate>Tue, 14 May 2019 00:00:00 +0000</pubDate>
+      <title>R  建立博客</title>
+      <link>/2019/05/16/r/</link>
+      <pubDate>Thu, 16 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/05/14/wuliao/</guid>
-      <description>wuliao</description>
+      <guid>/2019/05/16/r/</guid>
+      <description>通过git连接本地和githhub. 因为本地Git仓库和GitHub仓库之间的传输是通过SSH加密传输的，GitHub需要识别是否是你推送，GitHub只要知道了你的公钥，就可以确认只有你自己才能推送，所以需要配置ssh key。在用户主目录（C:）下，看看有没有.ssh文件，如果有，再看文件下有没有id_rsa和id_rsa.pub这两个文件，如果已经有了，可直接到下一步。如果没有，打开Git Bash，输入命令，创建SSH Key。//110@126.com 是你自己注册GitHub的邮箱ssh-keygen -t rsa -C “110@126.com”接下来到GitHub上，打开“Account settings”–“SSH Keys”页面，然后点击“Add SSH Key”，填上Title（随意写），在Key文本框里粘贴 id_rsa.pub文件里的全部内容。
+下面开始设置username和email，因为github每次commit都会记录他们
+$ git config –global user.name “name”//你的GitHub登陆名$ git config –global user.email “123@126.com”//你的GitHub注册邮箱
+2.建站
+2.1用github创建repository
+填写好repository name、Deion，默认选择Public，可以选择复选框Initialize this repository with a README，add .gitignore选择R吧，点击Create repository就可以创建好用于保存网站的repository。
+2.2 blogdown建站
+创建项目.现在回到rstudio，File -&amp;gt; New Project -&amp;gt; Version Control -&amp;gt; Git，然后填写Repository URL:https://github.com/yourGithubName/domainname.com，Project directory name应该自动就生成了，可以选择一个合适的文件夹存放，点击Create Project创建项目。
+打开Rstudio-&amp;gt;File-&amp;gt;New Project-&amp;gt;New Directory 进入如下操作
+选择Website using blogdown创建一个R项目(如果看不到这个选项，请升级你的Rstudio) 进而
+注意上述过程也可以通过R命令来实现：blogdown::new_site(theme = “xxx”),xxx代表你要使用的hugo主题，hugo主题可以在https://themes.</description>
     </item>
     
     <item>
-      <title>A Plain Markdown Post</title>
-      <link>/2016/12/30/a-plain-markdown-post/</link>
-      <pubDate>Fri, 30 Dec 2016 21:49:57 -0700</pubDate>
+      <title>R  爬虫 介绍</title>
+      <link>/2019/05/16/r-blog/</link>
+      <pubDate>Thu, 16 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2016/12/30/a-plain-markdown-post/</guid>
-      <description>This is a post written in plain Markdown (*.md) instead of R Markdown (*.Rmd). The major differences are:
- You cannot run any R code in a plain Markdown document, whereas in an R Markdown document, you can embed R code chunks (```{r}); A plain Markdown post is rendered through Blackfriday, and an R Markdown document is compiled by rmarkdown and Pandoc.  There are many differences in syntax between Blackfriday&amp;rsquo;s Markdown and Pandoc&amp;rsquo;s Markdown.</description>
+      <guid>/2019/05/16/r-blog/</guid>
+      <description>常用包rvestxml2Rcurlhttrrvest
+rvest包可能是R语言中数据抓取使用频率最高的包了，它的知名度和曝光度在知乎的数据分析相关帖子和回答中都很高。read_html()：下载网页,读取html文档或链接，可以是url链接，也可以是本地的html文件；html_nodes()：获得指定名称的网页元素、节点；html_text()：提取tags内文本,获得指定名称的网页元素、节点文本；html_attrs()：获得指定的网址；html_table() :提取tags内表格
+R爬虫案例
+rvest 爬取ncbi文献列表豆瓣图书 Top 榜爬取高德地图使用XML抓取表格数据（爬取勇士队球员数据）使用rvest抓取网页数据（爬取关于特朗普的百度新闻）使用jsonlite抓取json格式数据（爬取高德地图温州各个行政区域的中心）使用RSelenium模拟登录抓取数据（模拟登录人大经济论坛爬取R语言板块数据）使用PhantomJS不登陆抓取数据（抓取国家数据各省的近13个月CPI）另外你也会学到一些数据处理的小技巧濒危世界遗产可视化</description>
     </item>
     
     <item>
-      <title>Hello R Markdown</title>
-      <link>/2015/07/23/hello-r-markdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      <title>R 1</title>
+      <link>/2019/05/16/r-1/</link>
+      <pubDate>Thu, 16 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2015/07/23/hello-r-markdown/</guid>
-      <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
-    </item>
-    
-    <item>
-      <title>Lorem Ipsum</title>
-      <link>/2015/01/01/lorem-ipsum/</link>
-      <pubDate>Thu, 01 Jan 2015 13:09:13 -0600</pubDate>
-      
-      <guid>/2015/01/01/lorem-ipsum/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
+      <guid>/2019/05/16/r-1/</guid>
+      <description></description>
     </item>
     
   </channel>

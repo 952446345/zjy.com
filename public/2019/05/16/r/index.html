@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.55.5" />
+
+
+<title>R  建立博客 - 张净沿 Blog</title>
+<meta property="og:title" content="R  建立博客 - 张净沿 Blog">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/rstudio/blogdown">GitHub</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">R  建立博客</h1>
+
+    
+    <span class="article-date">2019-05-16</span>
+    
+
+    <div class="article-content">
+      
+
+
+<ol style="list-style-type: decimal">
+<li>通过git连接本地和githhub. 因为本地Git仓库和GitHub仓库之间的传输是通过SSH加密传输的，GitHub需要识别是否是你推送，GitHub只要知道了你的公钥，就可以确认只有你自己才能推送，所以需要配置ssh key。
+在用户主目录（C:）下，看看有没有.ssh文件，如果有，再看文件下有没有id_rsa和id_rsa.pub这两个文件，如果已经有了，可直接到下一步。如果没有，打开Git Bash，输入命令，创建SSH Key。
+//<a href="mailto:110@126.com" class="email">110@126.com</a> 是你自己注册GitHub的邮箱
+ssh-keygen -t rsa -C “<a href="mailto:110@126.com" class="email">110@126.com</a>”</li>
+</ol>
+<p>接下来到GitHub上，打开“Account settings”–“SSH Keys”页面，然后点击“Add SSH Key”，填上Title（随意写），在Key文本框里粘贴 id_rsa.pub文件里的全部内容。</p>
+<p>下面开始设置username和email，因为github每次commit都会记录他们</p>
+<p>$ git config –global user.name “name”//你的GitHub登陆名
+$ git config –global user.email “<a href="mailto:123@126.com" class="email">123@126.com</a>”//你的GitHub注册邮箱</p>
+<p>2.建站</p>
+<p>2.1用github创建repository</p>
+<p>填写好repository name、Deion，默认选择Public，可以选择复选框Initialize this repository with a README，add .gitignore选择R吧，点击Create repository就可以创建好用于保存网站的repository。</p>
+<p>2.2 blogdown建站</p>
+<p>创建项目.现在回到rstudio，File -&gt; New Project -&gt; Version Control -&gt; Git，然后填写Repository URL:<a href="https://github.com/yourGithubName/domainname.com，Project" class="uri">https://github.com/yourGithubName/domainname.com，Project</a> directory name应该自动就生成了，可以选择一个合适的文件夹存放，点击Create Project创建项目。</p>
+<p>打开Rstudio-&gt;File-&gt;New Project-&gt;New Directory 进入如下操作</p>
+<p>选择Website using blogdown创建一个R项目(如果看不到这个选项，请升级你的Rstudio) 进而</p>
+<p>注意上述过程也可以通过R命令来实现：blogdown::new_site(theme = “xxx”),xxx代表你要使用的hugo主题，hugo主题可以在https://themes.gohugo.io/中获得，这里有你想要的各种主题，你可以直接下载，拷贝到你项目中的themes文件中。</p>
+<p>运行完第一步之后，你会在你的Rstudio中看到项目文件的列表：</p>
+<p>config.toml: 这是你的博客的配置文件，对于你博客的一些全局信息可以在这里修改和配置</p>
+<p>content文件夹: 这里存放了我要Post的R markdown 文档和其他你要Post的markdown文档</p>
+<p>index.Rmd: 最终生成index.html</p>
+<p>public文件夹：最终博客生成的html文件和一些静态资源文件会放在这里</p>
+<p>static: blogdown需要的一些静态资源文件，像css文件，js文件，图片，视频等均属于静态资源文件</p>
+<p>themes: hugo主题，blogdown引入的hugo主题会下载到这个文件夹，同时你可以把你想要的hugo主题考到这个文件夹中供blogdown引用</p>
+<p>在Console中输入：blogdown::serve_site()就可以正常启动你的博客系统了：</p>
+<p>content文件夹中的内容就是我们要Post的内容，因此我们只需删除掉content-&gt;post文件夹下的文件就可以了，同时我们也可以把about.md文件换成自己的about内容。清空之后我们就可以按照下面面方式Post我们自己的博文了，tools-&gt;Addins-&gt;blogdown New Post-&gt;Excute就可以新建一个Post的Rmd文档</p>
+<p>3.部署</p>
+<p>登陆netlify 点击部署</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

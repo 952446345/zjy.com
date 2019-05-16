@@ -1,0 +1,61 @@
+---
+title: 'R  建立博客'
+author: jocelyn
+date: '2019-05-16'
+slug: r
+categories:
+  - R
+tags: []
+---
+1. 通过git连接本地和githhub. 因为本地Git仓库和GitHub仓库之间的传输是通过SSH加密传输的，GitHub需要识别是否是你推送，GitHub只要知道了你的公钥，就可以确认只有你自己才能推送，所以需要配置ssh key。 
+在用户主目录（C:\Users\Administrator）下，看看有没有.ssh文件，如果有，再看文件下有没有id_rsa和id_rsa.pub这两个文件，如果已经有了，可直接到下一步。如果没有，打开Git Bash，输入命令，创建SSH Key。
+//110@126.com 是你自己注册GitHub的邮箱
+ssh-keygen -t rsa -C "110@126.com" 
+
+接下来到GitHub上，打开“Account settings”–“SSH Keys”页面，然后点击“Add SSH Key”，填上Title（随意写），在Key文本框里粘贴 id_rsa.pub文件里的全部内容。 
+
+下面开始设置username和email，因为github每次commit都会记录他们
+
+$ git config --global user.name  "name"//你的GitHub登陆名
+$ git config --global user.email "123@126.com"//你的GitHub注册邮箱
+
+2.建站
+
+2.1用github创建repository
+
+填写好repository name、Deion，默认选择Public，可以选择复选框Initialize this repository with a README，add .gitignore选择R吧，点击Create repository就可以创建好用于保存网站的repository。
+
+
+2.2 blogdown建站
+
+创建项目.现在回到rstudio，File -> New Project -> Version Control -> Git，然后填写Repository URL:https://github.com/yourGithubName/domainname.com，Project directory name应该自动就生成了，可以选择一个合适的文件夹存放，点击Create Project创建项目。
+
+打开Rstudio->File->New Project->New Directory 进入如下操作
+
+选择Website using blogdown创建一个R项目(如果看不到这个选项，请升级你的Rstudio) 进而
+
+注意上述过程也可以通过R命令来实现：blogdown::new_site(theme = "xxx"),xxx代表你要使用的hugo主题，hugo主题可以在https://themes.gohugo.io/中获得，这里有你想要的各种主题，你可以直接下载，拷贝到你项目中的themes文件中。
+
+运行完第一步之后，你会在你的Rstudio中看到项目文件的列表：
+
+
+
+config.toml: 这是你的博客的配置文件，对于你博客的一些全局信息可以在这里修改和配置
+
+content文件夹: 这里存放了我要Post的R markdown 文档和其他你要Post的markdown文档
+
+index.Rmd: 最终生成index.html
+
+public文件夹：最终博客生成的html文件和一些静态资源文件会放在这里
+
+static: blogdown需要的一些静态资源文件，像css文件，js文件，图片，视频等均属于静态资源文件
+
+themes: hugo主题，blogdown引入的hugo主题会下载到这个文件夹，同时你可以把你想要的hugo主题考到这个文件夹中供blogdown引用
+
+在Console中输入：blogdown::serve_site()就可以正常启动你的博客系统了：
+
+content文件夹中的内容就是我们要Post的内容，因此我们只需删除掉content->post文件夹下的文件就可以了，同时我们也可以把about.md文件换成自己的about内容。清空之后我们就可以按照下面面方式Post我们自己的博文了，tools->Addins->blogdown New Post->Excute就可以新建一个Post的Rmd文档
+
+3.部署
+
+登陆netlify 点击部署
