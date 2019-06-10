@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>fiddler on 张净沿 Blog</title>
+    <link>/categories/fiddler/</link>
+    <description>Recent content in fiddler on 张净沿 Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 22 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/fiddler/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>fiddler -foundation-1</title>
+      <link>/2019/05/22/fiddler-foundation-1/</link>
+      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/05/22/fiddler-foundation-1/</guid>
+      <description>Fiddler 是否作为系统代理我们启动Fiddler 后，默认就把Fiddler 作为系统代理服务器了，启动Fiddler 。在状态栏最左边中可以看到Capturing，说明Fiddler已经作为系统代理服务器了。这时在浏览器中访问网站，所有的请求和响应的会话就会在Web Sessions 列表中显示
+捕获局域网中手机浏览网页的数据安装Fiddler 的本机和手机在同一局域网中时，我们可以捕获到手机浏览网站或网页的数据，具体方法如下：1.设置Fiddler 所在的主机（1）启动Fiddler，在菜单栏中依次选择Tools|Fiddler Options…命令，弹出Fiddler Options 对话框。单击Connections 选项卡，勾选Allow remote computers to connect 复选框。可以看到默认监听端口为8888，设置好以后，单击OK按钮，Fiddler需要重新启动2.设置局域网手机的代理设置（1）查看手机所连无线的网络详情，设置手机代理，如图1.16所示。从图中可以看到手机的IP地址为192.168.1.103，和Fiddler所在的主机在同一局域网内，也可以看到手机没有设置代理。代理中的主机名，写入Fiddler所在主机的IP地址，端口写入8888。（3）单击右上角的确定按钮，保存即可。（4）用手机浏览网页，Fiddler就会捕获到手机上的数据
+Web Session 列表中可以看到一些列标题，每一列标题包含了会话的一些重要信息。每一列的具体含义如下所示：#表示Fiddler 为Session 生成的ID。Result 表示响应状态码。Protocol 表示该Session 使用的协议，如HTTP/HTTPS/FTP。Host 表示接受请求的服务器的主机名和端口号。URL 表示请求URL 的路径、文件和查询字符串。Body 表示响应体中包含的字节数。Caching 表示响应头中Expires 和Cache-Control 字段的值。Content-Type 表示响应的Content-Type 头类型。Process 表示数据流对应的本地Windows 进程。Comments 表示Session 的注释信息。Custom 表示FiddlerScript 所设置的ui-CustomColumn 标志位的值。</description>
+    </item>
+    
+  </channel>
+</rss>

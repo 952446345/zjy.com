@@ -1,0 +1,16 @@
+---
+title: fiddler-http studying http协议学习
+author: ''
+date: '2019-06-03'
+slug: fiddler-http-studying
+categories:
+  - fiddler
+tags: []
+---
+http报文分两个，一个是http请求报文，一个是http响应报文
+
+http请求报文分为3部分
+起始行，首部(header)，主体（body)
+起始行又分为三个部分：method,url,协议版本
+
+响应报文的结构

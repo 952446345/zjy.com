@@ -1,15 +1,14 @@
 ---
-title: r pachong 工作报告
-author: jocelyn
-date: '2019-05-16'
-slug: r-pachong-zhengfu
+title: pachong-practic-1
+author: ''
+date: '2019-05-31'
+slug: pachong-practic-1
 categories:
   - R
 tags: []
-
 ---
-# 今天我们要用爬虫来爬取这篇文章，然后进行文本分词，再到文本可视化。我们需要使用下面这三个包：
-
+ # 今天我们要用爬虫来爬取这篇文章，然后进行文本分词，再到文本可视化。我们需要使用下面这三个包：
+  
 （1）rvest 爬虫
 
 （2）jiebaR 用于分词，统计词频
@@ -21,6 +20,8 @@ install.packages("jiebaR")
 library("jiebaR")
 install.packages("wordcloud2")
 library("wordcloud2")
+library(rvest)
+
 ```
 
 # 政府工作报告 http://www.gov.cn/guowuyuan/2019-03/16/content_5374314.htm
@@ -43,6 +44,7 @@ position<-web %>% html_nodes("div.pages_content") %>% html_text()
 print(position)
 
 ```
+
 ##使用jiebaR进行分词，统计词频
 
 ```{r}
@@ -55,7 +57,6 @@ hist(table(seg))
 print(f)
 ```
 
-
 ### wordcloud 可视化
 
 ```{r}
@@ -65,30 +66,3 @@ f2<-f[1:150,] #总共有2000多个词，为了显示效果，我只提取前150�
 wordcloud2(f2, size = 1 ,shape='triangle')    #形状设置为三角形
 
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
