@@ -1,0 +1,53 @@
+---
+title: ggplot2 基础4 条形图
+author: ''
+date: '2019-06-13'
+slug: ggplot2-learning4
+categories:
+  - R
+tags: []
+---
+条形图通常用来展示不同分类下（在x轴上）另一变量的取值或频数（在y轴上），为取值时使用：
+```{r}
+#条形图通常用来展示不同分类下（在x轴上）另一变量的取值或频数（在y轴上），为取值时使用：
+stat="identity"
+#为频数时使用
+stat="bin"
+```
+
+简单条形图 
+```{r}
+ggplot(BOD, aes(x=factor(Time), y=demand)) + geom_bar(stat="identity")
+
+
+#美化一下
+
+ggplot(BOD, aes(x=factor(Time), y=demand)) + geom_bar(stat="identity", fill="lightblue", color="red")
+```
+
+2 分组条形图 
+将填充映射到分组变量即可，同时指定position为dodge。
+
+```{r}
+# 为了使用数据
+library(gcookbook)
+ggplot(cabbage_exp, aes(x=Date, y=Weight, fill=Cultivar)) + geom_bar(stat="identity", position="dodge")
+```
+
+3 频数条形图 
+绘制频数条形图时，无需为y轴指定映射。x轴可以为类别型或连续型变量，当x轴为连续型变量时，geom_bar()和geom_histogram()效果相同。
+```{r}
+# cut为类别型变量，等价于使用geom_bar(stat="bin")
+ggplot(diamonds, aes(x=cut)) + geom_bar()
+# carat为连续型变量
+ggplot(diamonds, aes(x=carat)) + geom_bar()
+```
+
+
+
+堆积条形图 
+在geom_bar()中不使用position=”dodge”时，默认为堆积条形图。
+```{r}
+ggplot(cabbage_exp, aes(x=Date, y=Weight, fill=Cultivar)) + geom_bar(stat="identity") + guides(fill=guide_legend(reverse=TRUE))
+```
+

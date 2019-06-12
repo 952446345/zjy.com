@@ -1,5 +1,5 @@
 ---
-title: fiddler -foundation-1
+title: fiddler基础
 author: ''
 date: '2019-05-22'
 slug: fiddler-foundation-1
@@ -32,3 +32,10 @@ Web Session 列表中可以看到一些列标题，每一列标题包含了会�
 Process 表示数据流对应的本地Windows 进程。 
 Comments 表示Session 的注释信息。 
 Custom 表示FiddlerScript 所设置的ui-CustomColumn 标志位的值。 
+
+
+
+............不写了 我会了..................
+Q&A
+1. 打开fiddler不是私密连接怎么办？
+重新安装证书

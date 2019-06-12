@@ -1,5 +1,5 @@
 ---
-title: 'R  爬虫 介绍'
+title: 'Rcurl 介绍'
 author: jocelyn
 date: '2019-05-16'
 slug: r-blog
@@ -33,3 +33,64 @@ rvest 爬取ncbi文献列表
 使用PhantomJS不登陆抓取数据（抓取国家数据各省的近13个月CPI）
 另外你也会学到一些数据处理的小技巧
 濒危世界遗产可视化
+------------------------------------------------------------------------
+RCurl三大函数
+getURL() 
+getForm() 
+postForm()
+```{r}
+# 判断url是否存在
+url.exists(url="www.baidu.com") # 判断url是否存在
+# [1] TRUE
+d <- debugGatherer() #收集调试信息
+# verbose = TRUE 这时候，d$value()值是会叠加的
+tmp <- getURL(url="www.baidu.com", debugfunction = d$update, verbose = TRUE)  
+
+names(d$value())
+# [1] "text"       "headerIn"   "headerOut"  "dataIn"     "dataOut"    "sslDataIn"  "sslDataOut"
+
+cat(d$value()[1]) #服务器地址及端口号
+cat(d$value()[2]) #服务器返回的头信息
+cat(d$value()[3]) #提交给服务器的头信息
+d$reset() # 清除d$value()
+d$value() # 清除之后全部为空
+# text   headerIn  headerOut  dataIn    dataOut  sslDataIn sslDataOut 
+# ""         ""         ""         ""         ""         ""         "" 
+--------------------- 
+# 查看服务器返回的头信息
+## 列表形式
+h <- basicHeaderGatherer()
+txt <- getURL(url="http://www.baidu.com", headerfunction = h$update)
+names(h$value())
+# [1] "Date"           "Content-Type"   "Content-Length" "Last-Modified"  "Connection"    
+# [6] "Vary"           "Set-Cookie"     "Set-Cookie"     "Set-Cookie"     "P3P"           
+# [11] "Server"         "Pragma"         "Cache-control"  "BDPAGETYPE"     "BDQID"         
+# [16] "BDUSERID"       "Accept-Ranges"  "status"         "statusMessage"
+h$value()
+--------------------- 
+# 查看url请求的访问信息
+curl <- getCurlHandle()
+
+txt <- getURL(url="http://www.baidu.com", curl = curl)
+names(getCurlInfo(curl))
+[1] "effective.url"           "response.code"           "total.time"             
+[4] "namelookup.time"         "connect.time"            "pretransfer.time"       
+[7] "size.upload"             "size.download"           "speed.download"         
+[10] "speed.upload"            "header.size"             "request.size"           
+[13] "ssl.verifyresult"        "filetime"                "content.length.download"
+[16] "content.length.upload"   "starttransfer.time"      "content.type"           
+[19] "redirect.time"           "redirect.count"          "private"                
+[22] "http.connectcode"        "httpauth.avail"          "proxyauth.avail"        
+[25] "os.errno"                "num.connects"            "ssl.engines"            
+[28] "cookielist"              "lastsocket"              "ftp.entry.path"         
+[31] "redirect.url"            "primary.ip"              "appconnect.time"        
+[34] "certinfo"                "condition.unmet" 
+
+
+
+
+
+
+
+
+
