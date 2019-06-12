@@ -1,5 +1,5 @@
 ---
-title: R语言基础1
+title: R语言基础
 author: ''
 date: '2019-05-31'
 slug: r-foundation-1
