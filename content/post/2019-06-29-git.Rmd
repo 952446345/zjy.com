@@ -1,12 +1,12 @@
 ---
-title: 'git 常用命令 (转载)'
+title: git常用命令
 author: ''
-date: '2019-05-18'
+date: '2019-06-29'
 slug: git
-categories:
-  - other
+categories: []
 tags: []
 ---
+
 Git常用命令符：
 1、git init//本地新建仓库
 
