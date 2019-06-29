@@ -1,0 +1,43 @@
+---
+title: 'ggplot2  learning5 基础5 折线图'
+author: ''
+date: '2019-06-14'
+slug: ggplot2-learning5
+categories:
+  - R
+tags: []
+---。。。。
+```{r}
+
+```
+
+1 简单折线图 
+使用geom_line()即可绘制折线图。
+
+```{r}
+ggplot(BOD, aes(x=Time, y=demand)) + geom_line()
+```
+绘制面积图 
+使用geom_area()即可绘制面积图。以下代码中，横轴为年份（数值型），纵轴为因变量的数值。
+```{r}
+sunspotyear <- data.frame(Year=as.numeric(time(sunspot.year)), Sunspots=as.numeric(sunspot.year))
+ggplot(sunspotyear, aes(x=Year, y=Sunspots)) + geom_area()
+# 美化一下
+ggplot(sunspotyear, aes(x=Year, y=Sunspots)) + geom_area(fill="blue", alpha=.2) + geom_line()
+```
+
+堆叠面积图 
+在绘制面积图时，将一个因子型变量映射到fill即可绘制堆叠面积图。
+
+```{r}
+library(gcookbook)
+ggplot(uspopage, aes(x=Year, y=Thousands, fill=AgeGroup)) + geom_area()
+
+
+# 美化
+
+ggplot(uspopage, aes(x=Year, y=Thousands, fill=AgeGroup)) + geom_area(alpha=.6) + scale_fill_brewer(palette="Blues", breaks=rev(levels(uspopage$AgeGroup))) + geom_line(position="stack", size=.2)
+```
+
+
+

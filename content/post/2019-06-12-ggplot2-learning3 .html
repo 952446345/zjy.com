@@ -1,0 +1,57 @@
+---
+title: ggplot2 基础3 各种类型的图 
+author: ''
+date: '2019-06-12'
+slug: ggplot2-learning3
+categories:
+  - R
+tags: []
+---
+。。。。。
+ggplot2使用统一的语法，采用了图层叠加的概念
+
+1.散点图
+
+其中ggplot()完成全局配置，包括指定数据框（mtcars）和映射（aes），然后叠加上散点图geom_point()，叠加的函数中可以指定局部配置。由于在ggplot()中已经指定了配置，因此geom_point()中不再需要任何参数。画出来是这样的：
+```{r}
+ggplot(mtcars, aes(x=wt, y=mpg)) + geom_point()
+
+```
+
+折线图
+绘制折线图，并叠加散点图
+```{r}
+ggplot(pressure, aes(x=temperature, y=pressure)) + geom_line() + geom_point()
+
+```
+
+条形图
+使用table()统计向量频数。
+
+```{r}
+# 基于两列画柱状图，x轴为连续值
+ggplot(BOD, aes(x=Time, y=demand)) + geom_bar(stat="identity")
+# 基于两列画柱状图，x轴为因子
+ggplot(BOD, aes(x=factor(Time), y=demand)) + geom_bar(stat="identity")
+# 基于某一列的频数画柱状图
+ggplot(mtcars, aes(x=factor(cyl))) + geom_bar()
+```
+
+
+直方图
+如果说条形图是离散值的频数，那么直方图就是连续值的分布了。
+```{r}
+ggplot(mtcars, aes(x=mpg)) + geom_histogram(binwidth=4)
+```
+
+
+箱线图
+使用箱线图来刻画当因子取不同值时，另一连续变量的分布情况。
+
+```{r}
+
+# 基于单因子
+ggplot(ToothGrowth, aes(x=supp, y=len)) + geom_boxplot()
+# 基于多因子
+ggplot(ToothGrowth, aes(x=interaction(supp, dose), y=len)) + geom_boxplot()
+```
