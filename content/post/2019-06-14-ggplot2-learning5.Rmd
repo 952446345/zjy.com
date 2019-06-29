@@ -6,7 +6,7 @@ slug: ggplot2-learning5
 categories:
   - R
 tags: []
----
+---。。。。
 ```{r}
 
 ```

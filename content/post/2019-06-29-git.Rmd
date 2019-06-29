@@ -6,7 +6,7 @@ slug: git
 categories: []
 tags: []
 ---
-
+。。。。。。。。。。。。。。。。。
 Git常用命令符：
 1、git init//本地新建仓库
 

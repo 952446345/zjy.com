@@ -7,7 +7,7 @@ categories:
   - other
 tags: []
 ---
-
+。。。。
 首先是知道了有R语言这个工具
 
 
