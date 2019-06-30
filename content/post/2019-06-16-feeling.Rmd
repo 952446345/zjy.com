@@ -1,5 +1,5 @@
 ---
-title: '震惊...我现在转计算机学院还来得及吗'
+title: '一点感想'
 author: ''
 date: '2019-06-16'
 slug: feeling
